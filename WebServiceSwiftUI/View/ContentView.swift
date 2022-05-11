@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var viewModel = ViewModel()
     var body: some View {
-        Text("Hello, world!")
+        Text(viewModel.chuckModel.value)
             .padding()
+        Button {
+            viewModel.getChuckMessage()
+        } label: {
+            Label("Refresh", systemImage: "refresh")
+        }
     }
 }
 
